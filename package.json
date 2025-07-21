@@ -1,0 +1,23 @@
+{
+  "name": "guess_the_color",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./build/css/style.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.6.14"
+  },
+  "prettier": {
+  "plugins": ["prettier-plugin-tailwindcss"]
+}   
+}

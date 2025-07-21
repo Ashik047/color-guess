@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@layer utilities {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Playfair Display", serif;
+    }
+}
+
+@theme {
+    --card-size: clamp(100px, 135.712px + 8.929vw, 200px);
+    --animate-card: card 1.5s ease-in-out forwards;
+
+    @keyframes card {
+        0% {
+            left: -1000px;
+            trasform: rotate(0deg);
+        }
+
+        50% {
+            left: 0;
+        }
+
+        100% {
+            left: 50%;
+            transform: rotate(720deg) translateX(-50%);
+        }
+    }
+}

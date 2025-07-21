@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card of Fate</title>
+    <meta name="author" content="Ashik Biju">
+    <meta name="description"
+        content="Test your instincts in this fun card game where you guess the color of a randomly drawn card. Simple, fast, and addictive — can you beat the deck?">
+    <!-- tailwind -->
+    <link rel="stylesheet" href="./build/css/style.css">
+    <!-- favicon -->
+    <link rel="icon" href="./Images/favicon.jpg">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Meow+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/47b5fa122b.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="relative min-h-screen bg-[url(/Images/bg.jpg)] bg-cover pb-16">
+    <!-- rules button -->
+    <button class="float-right m-4 w-[100px] rounded-lg bg-red-700 p-0.5 hover:bg-red-500" id="rules">
+        Rules
+    </button>
+    <!-- game area -->
+    <main class="w-full pt-20">
+        <h1 class="text-center text-5xl font-extrabold text-red-800 sm:text-6xl">
+            Color Guess
+        </h1>
+        <!-- card -->
+        <div class="animate-card absolute top-50 -left-[1100px] aspect-5/7 w-(--card-size) transform">
+            <img class="hidden h-full w-full rounded-xl shadow-2xl" id="card">
+        </div>
+        <!-- result of the game -->
+        <div class="absolute top-70 left-1/2 -translate-x-1/2 transform text-center text-9xl font-extrabold"
+            id="result"></div>
+        <!-- score of the game -->
+        <div id="score" class="mt-90 flex justify-evenly text-center text-3xl font-bold text-white">
+            <div>
+                <p class="mb-6 text-6xl text-green-600" id="correctGuess">0</p>
+                <p>Bullseye</p>
+            </div>
+            <!-- Created by Ashik Biju | 2025 | Color Guess -->
+            <div>
+                <p class="mb-6 text-6xl text-red-600" id="wrongGuess">0</p>
+                <p>Off target</p>
+            </div>
+        </div>
+        <!-- game buttons -->
+        <div class="mt-16 flex justify-center gap-6 text-white">
+            <button id="red" class="w-[100px] rounded-xl bg-red-800 p-2 hover:bg-red-500">
+                Red
+            </button>
+            <button id="black" class="w-[100px] rounded-xl bg-black p-2 hover:bg-gray-700">
+                Black
+            </button>
+            <button id="reset" class="w-[100px] rounded-xl bg-blue-800 p-2 hover:bg-blue-600">
+                Reset
+            </button>
+        </div>
+    </main>
+    <!-- rules -->
+    <section
+        class="absolute top-1/2 left-1/2 z-1 w-[90%] -translate-1/2 transform rounded-xl bg-gray-800 p-4 text-white"
+        id="dispRule">
+        <button class="float-right me-8 rounded-sm p-0.5 hover:bg-white hover:text-black" id="close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 class="mt-4 font-bold">Welcome to Color Guess</h2>
+        <h3 class="mt-4 font-bold">Training Zone</h3>
+        <h4 class="mt-4 font-bold">The Deck</h4>
+        <ul>
+            <li>Only Spades (black) and Hearts (red) &hyphen; total 26 cards.</li>
+            <li>No repeats &hyphen; each card appears only once per match.</li>
+        </ul>
+        <h4 class="mt-4 font-bold">The Goal</h4>
+        <ul>
+            <li>Guess the color of the randomly drawn card.</li>
+            <li>Choose 🔴 Red or ⚫ Black.</li>
+            <li>Get it right = Bullseye ✅</li>
+            <li>Get it wrong = Off Target ❌</li>
+        </ul>
+        <h4 class="mt-4 font-bold">Scoring</h4>
+        <ul>
+            <li>Bullseye ➝ +1 point</li>
+            <li>Off Target ➝ &hyphen;1 point</li>
+        </ul>
+        <h4 class="mt-4 font-bold">How to Win</h4>
+        <ul>
+            <li>First to reach 11 Bullseyes = YOU WIN! 🎉</li>
+            <li>First to reach 11 Off Targets = YOU LOSE! 💥</li>
+            <li>If both hit 10 points, it&apos;s a DRAW 🤝</li>
+        </ul>
+        <h4 class="mt-4 font-bold">Resetting the Game</h4>
+        <ul>
+            <li>
+                Tap the Reset button to start fresh — both scores go back to zero.
+            </li>
+        </ul>
+    </section>
+    <!-- footer -->
+    <footer class="absolute bottom-0 mb-4 w-full text-center text-white">
+        <p>&copy; Ashik Biju | 2025 | Color Guess | All rights reserved</p>
+    </footer>
+    <script src="./build/js/main.js"></script>
+</body>
+
+</html>
