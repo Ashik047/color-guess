@@ -22,7 +22,7 @@
     <script src="https://kit.fontawesome.com/47b5fa122b.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="relative min-h-screen bg-[url(/Images/bg.jpg)] bg-cover pb-16">
+<body class="relative min-h-screen bg-[url(/Images/bg.jpg)] bg-cover pb-24">
     <!-- rules button -->
     <button class="float-right m-4 w-[100px] rounded-lg bg-red-700 p-0.5 hover:bg-red-500" id="rules">
         Rules
@@ -102,12 +102,24 @@
                 Tap the Reset button to start fresh — both scores go back to zero.
             </li>
         </ul>
+        <h4 class="mt-4 font-bold">🎯 Special Mission:</h4>
+        <ul>
+            <li>
+                Win by a margin of 5 or more points &hyphen; and witness the magic unfold.
+            </li>
+        </ul>
+
     </section>
+    <div id="fireworks-container" class="fixed top-0 left-0 w-full h-full pointer-events-none z-2"></div>
+
     <!-- footer -->
     <footer class="absolute bottom-0 mb-4 w-full text-center text-white">
         <p>&copy; Ashik Biju | 2025 | Color Guess | All rights reserved</p>
     </footer>
-    <script src="./build/js/main.js"></script>
+    <!-- cdn for fireworks -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/fireworks.js"></script> -->
+    <!-- js -->
+    <script src="./build/js/main.js" type="module"></script>
 </body>
 
 </html>

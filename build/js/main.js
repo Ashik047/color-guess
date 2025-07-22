@@ -1,3 +1,6 @@
+/* import */
+import { Fireworks } from "https://cdn.skypack.dev/fireworks-js";
+
 /* creating the deck */
 const deck = [];
 for (let i = 0; i < 13; i++) {
@@ -14,6 +17,23 @@ let wrongScore = 0;
 /* flags */
 let hidden = true;
 let rules = true;
+
+/* fireworks */
+const container = document.getElementById('fireworks-container');
+const fireworks = new Fireworks(container, {
+    hue: { min: 0, max: 360 },
+    delay: { min: 15, max: 30 },
+    speed: 2,
+    acceleration: 1.05,
+    friction: 0.98,
+    gravity: 1,
+    particles: 50,
+    trace: 3,
+    explosion: 5,
+    autoresize: true,
+    brightness: { min: 50, max: 80 },
+    decay: { min: 0.015, max: 0.03 },
+});
 
 /* selection the appropriate elements in DOM */
 const redButton = document.querySelector("#red");
@@ -76,13 +96,20 @@ function blockButton() {
 function guessRight() {
     correctScore++;
     correctGuess.innerText = correctScore;
-    if (correctScore > 10) {
-        result.innerText = "You Won!!!";
+    if (correctScore > 10 && correctScore - wrongScore > 4) {
+        result.innerText = "Flawless Triumph!";
+        result.classList.add("text-green-700");
+        blockButton();
+        /* fireworks start and stop */
+        fireworks.start();
+        setTimeout(() => fireworks.stop(), 5000);
+    } else if (correctScore > 10) {
+        result.innerText = "Victory Secured!";
         result.classList.add("text-green-700");
         blockButton();
     }
     if (wrongScore == 10 && wrongScore === correctScore) {
-        result.innerText = "Draw";
+        result.innerText = "Neck and Neck!";
         result.classList.add("text-gray-300");
         blockButton();
     }
@@ -93,12 +120,12 @@ function guessWrong() {
     wrongScore++;
     wrongGuess.innerText = wrongScore;
     if (wrongScore > 10) {
-        result.innerText = "You Lost";
+        result.innerText = "Game Over!";
         result.classList.add("text-red-700");
         blockButton();
     }
     if (wrongScore == 10 && wrongScore === correctScore) {
-        result.innerText = "Draw";
+        result.innerText = "Neck and Neck!";
         result.classList.add("text-gray-300");
         blockButton();
     }
@@ -132,11 +159,11 @@ resetButton.addEventListener("click", () => {
     correctGuess.innerText = correctScore;
     wrongGuess.innerText = wrongScore;
     playDeck = [].concat(deck);
-    if (result.innerText === "You Won!!!") {
+    if (result.innerText === "Victory Secured!" || result.innerText === "Flawless Triumph!") {
         result.classList.remove("text-green-700");
-    } else if (result.innerText === "You Lost") {
+    } else if (result.innerText === "Game Over!") {
         result.classList.remove("text-red-700");
-    } else if (result.innerText === "Draw") {
+    } else if (result.innerText === "Neck and Neck!") {
         result.classList.remove("text-grey-300");
     }
     result.innerText = "";
@@ -146,4 +173,5 @@ resetButton.addEventListener("click", () => {
     blackButton.removeAttribute("disabled");
     card.classList.add("hidden");
     hidden = true;
+    fireworks.stop();
 });
