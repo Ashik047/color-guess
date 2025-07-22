@@ -134,8 +134,6 @@ function guessWrong() {
 /* game buttons event listeners */
 redButton.addEventListener("click", () => {
     let card = randCard();
-    // console.log(playDeck.length);
-    // console.log(card);
     if (card[0] === "H") {
         guessRight();
     } else {
@@ -144,7 +142,6 @@ redButton.addEventListener("click", () => {
 });
 blackButton.addEventListener("click", () => {
     let card = randCard();
-    // console.log(card);
     if (card[0] === "S") {
         guessRight();
     } else {
